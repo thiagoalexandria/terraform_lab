@@ -1,5 +1,5 @@
-resource "aws_security_group" "acesso_sourcegraph" {
-  name        = "acesso_sourcegraph"
+resource "aws_security_group" "acess_app" {
+  name        = "acess_app"
   description = "Allow traffic"
   vpc_id      = data.aws_vpc.app.id
 
@@ -12,7 +12,7 @@ resource "aws_security_group" "acesso_sourcegraph" {
   }
 
   tags = {
-    Name = "acesso_sourcegraph"
+    Name = "acess_app"
   }
 }
 
@@ -21,8 +21,8 @@ resource "aws_security_group_rule" "http" {
   from_port                = 80
   to_port                  = 80
   protocol                 = "tcp"
-  source_security_group_id = aws_security_group.acesso_sourcegraph.id
-  security_group_id        = aws_security_group.acesso_sourcegraph.id
+  source_security_group_id = aws_security_group.acess_app.id
+  security_group_id        = aws_security_group.acess_app.id
 }
 
 resource "aws_security_group_rule" "ssh" {
@@ -31,5 +31,5 @@ resource "aws_security_group_rule" "ssh" {
   to_port           = 22
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.acesso_sourcegraph.id
+  security_group_id = aws_security_group.acess_app.id
 }

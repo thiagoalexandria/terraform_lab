@@ -24,3 +24,8 @@ variable "tg_tags" {
     Departamento = "DevOps"
   }
 }
+
+variable "app_name" {
+  type = string
+  default = "LAB-APP"
+}

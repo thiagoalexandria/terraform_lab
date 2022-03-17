@@ -12,7 +12,7 @@ resource "aws_security_group" "alb_sg" {
   }
 
   tags = {
-    Name = "acesso_sourcegraph"
+    Name = "acesso_alb"
   }
 }
 
